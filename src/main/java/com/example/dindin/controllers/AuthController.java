@@ -44,4 +44,5 @@ public class AuthController {
             return ResponseEntity.badRequest().body(new ResponseDTO(exception.getMessage(), null, false));
         }
     }
+
 }

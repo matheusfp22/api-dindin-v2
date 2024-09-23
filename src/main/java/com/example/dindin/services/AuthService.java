@@ -51,4 +51,5 @@ public class AuthService {
     public String generateToken(User user) {
         return tokenService.generateToken(user);
     }
+
 }
