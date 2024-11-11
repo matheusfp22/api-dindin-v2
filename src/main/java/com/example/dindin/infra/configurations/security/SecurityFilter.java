@@ -1,7 +1,7 @@
-package com.example.dindin.configurations.security;
+package com.example.dindin.infra.configurations.security;
 
-import com.example.dindin.entity.User;
-import com.example.dindin.repositories.UserRepository;
+import com.example.dindin.infra.entity.User;
+import com.example.dindin.infra.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +26,8 @@ public class SecurityFilter extends OncePerRequestFilter {
     UserRepository userRepository;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         var token = this.recoverToken(request);
         var login = tokenService.validateToken(token);
 

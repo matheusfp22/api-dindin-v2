@@ -1,4 +1,4 @@
-package com.example.dindin.entity;
+package com.example.dindin.infra.entity;
 
 import jakarta.persistence.*;
 

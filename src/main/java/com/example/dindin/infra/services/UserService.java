@@ -1,16 +1,17 @@
-package com.example.dindin.services;
+package com.example.dindin.infra.services;
 
-import com.example.dindin.configurations.security.TokenService;
-import com.example.dindin.entity.User;
-import com.example.dindin.repositories.UserRepository;
+import com.example.dindin.infra.configurations.security.TokenService;
+import com.example.dindin.infra.entity.User;
+import com.example.dindin.infra.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.Optional;
 
 @Service
-public class AuthService {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -50,6 +51,10 @@ public class AuthService {
 
     public String generateToken(User user) {
         return tokenService.generateToken(user);
+    }
+
+    public String validateToken(@RequestHeader("Authorization") String header) {
+        return tokenService.validateToken(header.substring(7));
     }
 
 }

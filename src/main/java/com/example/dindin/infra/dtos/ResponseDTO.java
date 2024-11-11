@@ -1,4 +1,4 @@
-package com.example.dindin.dto;
+package com.example.dindin.infra.dtos;
 
 public record ResponseDTO(
         String message,

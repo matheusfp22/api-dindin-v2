@@ -1,4 +1,4 @@
-package com.example.dindin.configurations.cors;
+package com.example.dindin.infra.configurations.cors;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

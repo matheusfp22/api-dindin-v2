@@ -1,7 +1,7 @@
-package com.example.dindin.configurations.security;
+package com.example.dindin.infra.configurations.security;
 
-import com.example.dindin.entity.User;
-import com.example.dindin.repositories.UserRepository;
+import com.example.dindin.infra.entity.User;
+import com.example.dindin.infra.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

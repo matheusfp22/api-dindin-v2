@@ -1,6 +1,6 @@
-package com.example.dindin.repositories;
+package com.example.dindin.infra.repositories;
 
-import com.example.dindin.entity.User;
+import com.example.dindin.infra.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
