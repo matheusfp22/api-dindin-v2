@@ -1,10 +1,10 @@
-package com.example.dindin.infra.entity;
+package com.example.dindin.infra.persistence;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +13,14 @@ public class User {
     private String email;
     private String password;
 
-    public User() {
+    public  UserEntity() {
+
+    }
+
+    public UserEntity(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public String getName() {

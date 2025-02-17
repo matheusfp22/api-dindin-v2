@@ -1,7 +1,7 @@
 package com.example.dindin.infra.configurations.security;
 
-import com.example.dindin.infra.entity.User;
-import com.example.dindin.infra.repositories.UserRepository;
+import com.example.dindin.infra.persistence.UserEntity;
+import com.example.dindin.infra.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,11 +18,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = this.userRepository.findByEmail(username)
+        UserEntity user = this.userRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         return new org.springframework.security.core.userdetails
                 .User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
-    
+
 }
