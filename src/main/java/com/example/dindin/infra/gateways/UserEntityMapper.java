@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserEntityMapper {
 
-    UserEntity toEntity(User user) {
+    public UserEntity toEntity(User user) {
         return new UserEntity(user.getName(),  user.getEmail(), user.getPassword());
     }
 
-    User toUSer(UserEntity UserEntity) {
+    User toUser(UserEntity UserEntity) {
         return new User(UserEntity.getName(),  UserEntity.getEmail(), UserEntity.getPassword());
     }
 

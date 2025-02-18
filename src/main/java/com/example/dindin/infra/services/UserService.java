@@ -34,21 +34,6 @@ public class UserService {
         throw new RuntimeException("Invalid password");
     }
 
-    public UserEntity register(String name, String email, String password) {
-        Optional<UserEntity> user = this.userRepository.findByEmail(email);
-
-        if (user.isPresent()) {
-            throw new RuntimeException("Email already exists");
-        }
-
-        UserEntity newUser = new UserEntity();
-        newUser.setPassword(passwordEncoder.encode(password));
-        newUser.setEmail(email);
-        newUser.setName(name);
-
-        return userRepository.save(newUser);
-    }
-
     public String generateToken(UserEntity user) {
         return tokenService.generateToken(user);
     }

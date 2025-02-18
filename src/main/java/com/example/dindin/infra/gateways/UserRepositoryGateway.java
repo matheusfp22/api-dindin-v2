@@ -6,6 +6,8 @@ import com.example.dindin.infra.persistence.UserEntity;
 import com.example.dindin.infra.persistence.UserRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UserRepositoryGateway implements UserGateway {
 
@@ -22,13 +24,17 @@ public class UserRepositoryGateway implements UserGateway {
     public User createUser(User user) {
         UserEntity userEntity = userEntityMapper.toEntity(user);
         UserEntity saved = userRepository.save(userEntity);
-        return userEntityMapper.toUSer(saved);
+        return userEntityMapper.toUser(saved);
     }
 
     @Override
-    public User findByEmail(String email) {
-        UserEntity userEntity = userRepository.findByEmail(email).orElse(null);
-        return userEntityMapper.toUSer(userEntity);
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email).map(userEntityMapper::toUser);
+    }
+
+    @Override
+    public User AuthenticateUse(String email, String password) {
+        return null;
     }
 
 }
